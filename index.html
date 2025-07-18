@@ -1,0 +1,172 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameModsHub Store – Skins, Mods & Gift Cards</title>
+  <meta name="description" content="Buy skins, mods, codes & gift cards to boost your gaming. Fast, local & secure." />
+  <meta name="keywords" content="gaming shop, buy skins, mods, gift cards, codes" />
+  <link rel="canonical" href="https://yourdomain.com/">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="nav-left">
+      <a href="../game-store/index.html">
+        <img src="assets/images/logo.svg" alt="GameModsHub Store Logo" class="logo">
+      </a>
+    </div>
+    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-center" id="nav-menu">
+      <nav>
+        <a href="../game-store/index.html">Home</a>
+        <a href="services/index.html">Services</a>
+        <a href="products/index.html">Products</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="about/index.html">About</a>
+        <a href="contact/index.html">Contact</a>
+        <a href="login/index.html" class="cta-button small mobile-login">Login</a>
+      </nav>
+    </div>
+    <div class="nav-right desktop-login">
+      <a href="login/index.html" class="cta-button small">Login</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1️⃣ Hero Section -->
+  <section class="hero">
+  <div class="hero-content">
+    <h1>Discover Epic Skins, Mods & Gift Cards</h1>
+    <p>Level up your game instantly with GameModsHub Store!</p>
+    <a href="register/index.html" class="cta-button">Register Now & Get Bonus</a>
+  </div>
+</section>
+
+  <!-- 2️⃣ Featured Products -->
+  <section class="featured">
+    <h2>Featured Products</h2>
+    <div class="grid">
+      <article class="product-card">
+        <div class="prod-img-bg"><img src="assets/images/medusa.png" alt="Medusa Skin"></div>
+        <div class="content-prod"><h3>Medusa Skin</h3>
+        <p>$9.99</p>
+        <button onclick="addToCart('skin1','Epic Medusa Skin',9.99)" class="cta-button">Add to Cart</button>
+    </div>
+      </article>
+      <article class="product-card">
+        <div class="prod-img-bg"><img src="assets/images/oren-alien.png" alt="$25 Oren Alien"></div>
+        <div class="content-prod"><h3>$25 Oren Alien</h3>
+        <p>$25.00</p>
+        <button onclick="addToCart('gift1','$25 Oren Alien',25.00)" class="cta-button">Add to Cart</button></div>
+      </article>
+      <!-- add 2-3 more dummy featured products -->
+    </div>
+  </section>
+
+  <!-- 3️⃣ Why Choose Us -->
+  <section class="why-choose">
+    <h2>Why Choose GameModsHub Store</h2>
+    <div class="grid">
+      <div class="feature-box">
+        <img src="assets/images/icon-secure.svg" class="custom-style" alt="Secure Checkout">
+        <h3>Secure Checkout</h3>
+        <p>All transactions are protected with top-tier encryption.</p>
+      </div>
+      <div class="feature-box">
+        <img src="assets/images/icon-fast.svg" class="custom-style" alt="Instant Delivery">
+        <h3>Instant Delivery</h3>
+        <p>Receive your digital items immediately after checkout.</p>
+      </div>
+      <div class="feature-box">
+        <img src="assets/images/icon-support.svg" class="custom-style" alt="24/7 Support">
+        <h3>24/7 Support</h3>
+        <p>Our team is ready to help anytime you need.</p>
+      </div>
+    </div>
+    <div class="center-button">
+    <a href="products/index.html" class="cta-button">Explore Products</a>
+  </div>
+  </section>
+
+  <!-- 4️⃣ Shop by Category -->
+  <!-- <section class="categories">
+    <h2>Shop by Category</h2>
+    <div class="grid">
+      <a href="/products/skins.html" class="category-card">
+        <img src="assets/images/cat-skins.jpg" alt="Skins">
+        <h3>Skins</h3>
+      </a>
+      <a href="/products/mods.html" class="category-card">
+        <img src="assets/images/cat-mods.jpg" alt="Mods">
+        <h3>Mods</h3>
+      </a>
+      <a href="/products/gift-cards.html" class="category-card">
+        <img src="assets/images/cat-giftcards.jpg" alt="Gift Cards">
+        <h3>Gift Cards</h3>
+      </a>
+      <a href="/products/codes.html" class="category-card">
+        <img src="assets/images/cat-codes.jpg" alt="Codes">
+        <h3>Codes</h3>
+      </a>
+    </div>
+  </section> -->
+
+   <!-- 6️⃣ Special Offer / Newsletter -->
+  <section class="special-offer">
+    <h2>Get an Exclusive Bonus!</h2>
+    <p>Register today and receive a free bonus code in your email.</p>
+    <a href="register/index.html" class="cta-button large">Sign Up Now</a>
+  </section>
+
+
+  <!-- 5️⃣ Latest Blog Posts -->
+  <section class="blog-preview">
+    <h2>Latest Blogs</h2>
+    <div class="grid">
+      <article class="blog-card">
+        <img src="assets/images/blog-free-mods.png" alt="Free Mods">
+        <h3>Best Free Mods for 2025</h3>
+        <p>Discover the top free mods to boost your game this year.</p>
+        <a href="blog/top-5-mods/index.html" class="cta-button small">Read More</a>
+      </article>
+      <article class="blog-card">
+        <img src="assets/images/blog-giftcards.png" alt="Top Skins">
+        <h3>Ultimate Skin Guide: Make Your Character Stand Out</h3>
+        <p>Stylish, rare, and trending skins to upgrade your look.</p>
+        <a href="blog/ultimate-skin-guide/index.html" class="cta-button small">Read More</a>
+      </article>
+      <article class="blog-card">
+        <img src="assets/images/blog-top-skins.png" alt="Gift Cards">
+        <h3>Using Gift Cards Wisely</h3>
+        <p>Tips to make the most out of your gift card purchases.</p>
+        <a href="blog/gift-card-guide/index.html" class="cta-button small">Read More</a>
+      </article>
+    </div>
+  </section>
+
+ 
+
+</main>
+
+<footer>
+  <p>&copy; 2025 GameModsHub Store</p>
+  <p>We are not an affiliate agency. All products are sold independently through our platform.</p>
+  <a href="privacy/index.html">Privacy</a> | <a href="terms/index.html">Terms</a> | <a href="cookies/index.html">Cookies</a>
+</footer>
+
+<script src="assets/js/main.js"></script>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById('nav-menu');
+    menu.classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>

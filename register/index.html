@@ -1,0 +1,126 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register – GameModsHub Store</title>
+  <meta name="description" content="Create your GameModsHub Store account to access exclusive skins, mods & gift cards.">
+  <meta name="keywords" content="register, sign up, GameModsHub store, gaming account">
+  <link rel="canonical" href="https://yourdomain.com/register/">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <style>
+    body {
+      background: url('../assets/images/login-bg.png') no-repeat center center / cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .register-container {
+      background: rgba(30, 30, 30, 0.85);
+      backdrop-filter: blur(10px);
+      max-width: 400px;
+      margin: auto;
+      margin-top: 5vh;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+    .register-container h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    .register-container p {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-color);
+    }
+    .register-container input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-color);
+      transition: border-color 0.3s;
+    }
+    .register-container input:focus {
+      outline: none;
+      border-color: var(--accent-color);
+    }
+    .register-container .cta-button {
+      width: 100%;
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .login-link a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .login-link a:hover {
+      color: var(--accent-hover);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="nav-left">
+      <a href="../index.html">
+        <img src="../assets/images/logo.svg" alt="GameModsHub Store Logo" class="logo">
+      </a>
+    </div>
+    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-center" id="nav-menu">
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../services/index.html">Services</a>
+        <a href="../products/index.html">Products</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../about/index.html">About</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../login/index.html" class="cta-button small mobile-login">Login</a>
+      </nav>
+    </div>
+    <div class="nav-right desktop-login">
+      <a href="../login/index.html" class="cta-button small">Login</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="register-container">
+    <h1>Create Account</h1>
+    <p>Sign up and unlock exclusive products, skins & mods at GameModsHub Store.</p>
+    <form action="javascript:void(0)" method="post">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" class="cta-button">Register</button>
+    </form>
+    <div class="login-link">
+      <p>Already have an account? <a href="../login/index.html">Sign In</a></p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 GameModsHub Store</p>
+  <p>We are not an affiliate agency. All products are sold independently through our platform.</p>
+  <a href="../privacy/index.html">Privacy</a> | <a href="../terms/index.html">Terms</a> | <a href="../cookies/index.html">Cookies</a>
+</footer>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById('nav-menu');
+    menu.classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>
