@@ -8,63 +8,129 @@
   <meta name="keywords" content="login, sign in, GameModsHub store, gaming account">
   <link rel="canonical" href="https://yourdomain.com/login/">
   <link rel="stylesheet" href="../assets/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
   <style>
-    body {
-      background: url('../assets/images/login-bg.png') no-repeat center center / cover;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .login-container {
-      background: rgba(30, 30, 30, 0.85);
-      backdrop-filter: blur(10px);
-      max-width: 400px;
-      margin: auto;
-      margin-top: 5vh;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-    }
-    .login-container h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-    }
-    .login-container p {
-      text-align: center;
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-      color: var(--text-color);
-    }
-    .login-container input {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
-      background: var(--card-bg);
-      color: var(--text-color);
-      transition: border-color 0.3s;
-    }
-    .login-container input:focus {
-      outline: none;
-      border-color: var(--accent-color);
-    }
-    .login-container .cta-button {
-      width: 100%;
-    }
-    .register-link {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .register-link a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-    .register-link a:hover {
-      color: var(--accent-hover);
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+  body, html { height: 100%; font-family: 'Poppins', sans-serif; }
+
+  .login-page {
+    display: flex;
+    height: 100vh;
+  }
+
+  .login-left {
+    flex: 0 0 40%;
+    background-color: #121921;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem 3rem;
+  }
+
+  .login-left .logo {
+    margin-bottom: 2rem;
+  }
+
+  .login-left h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-left p {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+
+  .login-left input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #1e2a36;
+    color: #fff;
+  }
+
+  .login-left input:focus {
+    border-color: #4cb548;
+    outline: none;
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #4cb548;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background 0.3s;
+  }
+
+  .cta-button:hover {
+    background: #3fa142;
+  }
+
+  .login-links {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .login-links a {
+    color: #4cb548;
+    text-decoration: none;
+    margin: 0 0.5rem;
+  }
+
+  .login-links a:hover {
+    text-decoration: underline;
+  }
+
+  .login-right {
+    flex: 0 0 60%;
+    position: relative;
+  }
+
+  .login-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .login-right::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4); /* dark overlay */
+  }
+
+  footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+
+  footer a {
+    color: #4cb548;
+    text-decoration: none;
+    margin: 0 0.3rem;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media(max-width: 768px) {
+    .login-page { flex-direction: column; }
+    .login-left, .login-right { flex: 1 1 auto; width: 100%; }
+    .login-right { height: 200px; }
+  }
   </style>
 </head>
 <body>
@@ -85,28 +151,36 @@
         <a href="../blog/index.html">Blog</a>
         <a href="../about/index.html">About</a>
         <a href="../contact/index.html">Contact</a>
-        <a href="../login/index.html" class="cta-button small mobile-login">Login</a>
+        <a href="../login/index.html" class="cta-button-login small mobile-login">Login</a>
       </nav>
     </div>
     <div class="nav-right desktop-login">
-      <a href="../login/index.html" class="cta-button small">Login</a>
+      <a href="../login/index.html" class="cta-button-login small">Login</a>
     </div>
   </div>
 </header>
 
 <main>
-  <div class="login-container">
+  <div class="login-page">
+  <div class="login-left">
     <h1>Welcome Back!</h1>
     <p>Sign in to continue your gaming journey with GameModsHub Store.</p>
-    <form action="javascript:void(0)" method="post">
+    <form action="#" method="post">
       <input type="email" name="email" placeholder="Email Address" required>
       <input type="password" name="password" placeholder="Password" required>
       <button type="submit" class="cta-button">Sign In</button>
     </form>
-    <div class="register-link">
-      <p>Don't have an account? <a href="../register/index.html">Register Now</a></p>
+    <div class="login-links">
+      <a href="#">Forgot Password?</a> | 
+      <a href="../register/index.html">Sign Up</a>
     </div>
   </div>
+  <div class="login-right">
+    <div class="hero-overlay"></div>
+    <div class="neon-grid"></div>
+    <img src="../assets/images/blog-post-img5.jpg" alt="Login background">
+  </div>
+</div>
 </main>
 
 <footer>
