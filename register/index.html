@@ -2,23 +2,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register – GameModsHub Store</title>
-  <meta name="description" content="Create your GameModsHub Store account to access exclusive skins, mods & gift cards.">
-  <meta name="keywords" content="register, sign up, GameModsHub store, gaming account">
-  <link rel="canonical" href="https://yourdomain.com/register/">
+  <title>Register – ModMorrowind Store</title>
+  <meta name="description" content="Create your ModMorrowind Store account to access exclusive skins, mods & gift cards.">
+  <meta name="keywords" content="register, sign up, ModMorrowind store, gaming account">
+  <link rel="canonical" href="https://modmorrowind.com/register/">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
   <style>
-
-     * { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
   body, html { height: 100%; font-family: 'Poppins', sans-serif; }
-
-  .register-page {
-    display: flex;
-    height: 100vh;
-  }
-
+  .register-page { display: flex; height: 100vh; }
   .register-left {
     flex: 0 0 40%;
     background-color: #121921;
@@ -28,104 +22,42 @@
     justify-content: center;
     padding: 2.5rem 3rem;
   }
-
-  .register-left .logo {
-    margin-bottom: 2rem;
-  }
-
-  .register-left h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .register-left p {
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-    color: #ccc;
-  }
-
+  .register-left h1 { font-size: 2rem; margin-bottom: 1rem; }
+  .register-left p { font-size: 0.95rem; margin-bottom: 2rem; color: #ccc; }
   .register-left input {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border-radius: 6px;
-    border: 1px solid #333;
-    background: #1e2a36;
-    color: #fff;
+    width: 100%; padding: 0.75rem; margin-bottom: 1rem;
+    border-radius: 6px; border: 1px solid #333; background: #1e2a36; color: #fff;
   }
-
-  .register-left input:focus {
-    border-color: #4cb548;
-    outline: none;
-  }
-
+  .register-left input:focus { border-color: #4cb548; outline: none; }
   .cta-button {
-    width: 100%;
-    padding: 0.75rem;
-    background: #4cb548;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-bottom: 1rem;
-    transition: background 0.3s;
+    width: 100%; padding: 0.75rem; background: #4cb548; color: #fff;
+    border: none; border-radius: 6px; font-weight: 600; cursor: pointer; margin-bottom: 1rem; transition: background 0.3s;
   }
-
-  .cta-button:hover {
-    background: #3fa142;
-  }
-
-  .login-link {
-    text-align: center;
-    font-size: 0.9rem;
-  }
-
-  .login-link a {
-    color: #4cb548;
-    text-decoration: none;
-  }
-
-  .login-link a:hover {
-    text-decoration: underline;
-  }
-
-  .register-right {
-    flex: 0 0 60%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .register-right img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
+  .cta-button:hover { background: #3fa142; }
+  .login-link { text-align: center; font-size: 0.9rem; }
+  .login-link a { color: #4cb548; text-decoration: none; }
+  .login-link a:hover { text-decoration: underline; }
+  .register-right { flex: 0 0 60%; position: relative; overflow: hidden; }
+  .register-right img { width: 100%; height: 100%; object-fit: cover; }
   .register-right::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    /* background: linear-gradient(to bottom right, rgba(18, 25, 33, 0.6), rgba(18, 25, 33, 0.8)); */
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom right, rgba(18,25,33,0.5), rgba(18,25,33,0.7));
   }
-
+  .toast {
+    position: fixed; 
+    top: 10%; 
+    left: 3%;
+    background: #4cb548; color: #fff; padding: 10px 20px;
+    border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    opacity: 0; transform: translateY(-10px); transition: all 0.4s ease;
+    z-index: 9999;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
   footer {
-    text-align: center;
-    color: #aaa;
-    font-size: 0.8rem;
-    padding: 1rem;
+    text-align: center; color: #aaa; font-size: 0.8rem; padding: 1rem;
   }
-
-  footer a {
-    color: #4cb548;
-    text-decoration: none;
-    margin: 0 0.3rem;
-  }
-
-  footer a:hover {
-    text-decoration: underline;
-  }
-
+  footer a { color: #4cb548; text-decoration: none; margin: 0 0.3rem; }
+  footer a:hover { text-decoration: underline; }
   @media(max-width: 768px) {
     .register-page { flex-direction: column; }
     .register-left, .register-right { flex: 1 1 auto; width: 100%; }
@@ -139,7 +71,7 @@
   <div class="navbar">
     <div class="nav-left">
       <a href="../index.html">
-        <img src="../assets/images/logo.svg" alt="GameModsHub Store Logo" class="logo">
+        <img src="../assets/images/logo.svg" alt="ModMorrowind Store Logo" class="logo">
       </a>
     </div>
     <div class="nav-toggle" onclick="toggleMenu()">☰</div>
@@ -162,38 +94,55 @@
 
 <main>
   <div class="register-page">
-  <div class="register-left">
-    <h1>Create Account</h1>
-    <p>Sign up and unlock exclusive products, skins & mods at GameModsHub Store.</p>
-    <form action="#" method="post">
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email Address" required>
-      <input type="password" name="password" placeholder="Password" required>
-      <button type="submit" class="cta-button">Register</button>
-    </form>
-    <div class="login-link">
-      <p>Already have an account? <a href="../login/index.html">Sign In</a></p>
+    <div class="register-left">
+      <h1>Create Account</h1>
+      <p>Sign up and unlock exclusive products, skins & mods at ModMorrowind Store.</p>
+      <form id="register-form" method="post">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit" class="cta-button">Register</button>
+      </form>
+      <div class="login-link">
+        <p>Already have an account? <a href="../login/index.html">Sign In</a></p>
+      </div>
+    </div>
+    <div class="register-right">
+      <div class = "hero-overlay"></div>
+      <div class = "neon-grid"></div>
+      <img src="../assets/images/blog-post-img5.jpg" alt="Register background">
     </div>
   </div>
-  <div class="register-right">
-    <div class="hero-overlay"></div>
-    <div class="neon-grid"></div>
-    <img src="../assets/images/blog-post-img5.jpg" alt="Register background">
-  </div>
-</div>
 </main>
 
+<div id="toast" class="toast">A confirmation code has been sent to your email.</div>
+
 <footer>
-  <p>&copy; 2025 GameModsHub Store</p>
+  <p>&copy; 2025 ModMorrowind Store</p>
   <p>We are not an affiliate agency. All products are sold independently through our platform.</p>
   <a href="../privacy/index.html">Privacy</a> | <a href="../terms/index.html">Terms</a> | <a href="../cookies/index.html">Cookies</a>
 </footer>
 
 <script>
-  function toggleMenu() {
-    var menu = document.getElementById('nav-menu');
-    menu.classList.toggle('show');
+function toggleMenu() {
+  document.getElementById('nav-menu').classList.toggle('show');
+}
+
+// Show toast if ?confirmation=1
+document.addEventListener("DOMContentLoaded", function(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.get("confirmation") === "1"){
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+    setTimeout(() => { toast.classList.remove("show"); }, 4000);
   }
+
+  // Optional: handle register submit (prevent actual post)
+  document.getElementById("register-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("Registered successfully! (Mock)");
+  });
+});
 </script>
 
 </body>

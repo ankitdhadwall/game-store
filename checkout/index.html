@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout – ModMorrowind</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+<link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<header>
+  <div class="navbar">
+    <div class="nav-left">
+      <a href="../index.html">
+        <img src="../assets/images/logo.svg" alt="ModMorrowind Store Logo" class="logo">
+      </a>
+    </div>
+    <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-center" id="nav-menu">
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../services/index.html">Services</a>
+        <a href="../products/index.html">Products</a>
+        <a href="../blog/index.html">Blog</a>
+        <a href="../about/index.html">About</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../cart/index.html" class="cart-link">🛒 <span id="cart-count">0</span></a>
+        <a href="../login/index.html" class="cta-button-login small mobile-login">Login</a>
+      </nav>
+    </div>
+    <div class="nav-right desktop-login">
+      <a href="../login/index.html" class="cta-button-login small">Login</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <h1>Checkout</h1>
+    <p>Enter your details to complete your order.</p>
+  </section>
+
+  <section class="checkout-container">
+    <div class="checkout-form">
+      <h2>Billing Details</h2>
+      <form onsubmit="placeOrder(event)">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="address" placeholder="Shipping Address" required>
+        <button type="submit" class="cta-button">Place Order</button>
+      </form>
+    </div>
+    <div class="checkout-summary">
+      <h2>Order Summary</h2>
+      <ul id="checkout-items">
+        <!-- JS fills items -->
+      </ul>
+      <p><strong>Total: $<span id="checkout-total">0.00</span></strong></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 ModMorrowind Store</p>
+  <p>We are not an affiliate agency. All products are sold independently through our platform.</p>
+  <a href="../privacy/index.html">Privacy</a> | 
+  <a href="../terms/index.html">Terms</a> | 
+  <a href="../cookies/index.html">Cookies</a>
+</footer>
+
+<script>
+function placeOrder(e){
+  e.preventDefault();
+  localStorage.removeItem("cart"); // Clear cart
+  location.href="../confirmation/index.html";
+}
+</script>
+
+<script src="../assets/js/cart.js"></script>
+
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('nav-menu');
+  menu.classList.toggle('show');
+}
+
+// Place order: redirect with confirmation
+function placeOrder(e){
+  e.preventDefault();
+  localStorage.removeItem("cart"); // clear cart
+  localStorage.removeItem("cartTotal");
+  window.location.href = "../register/index.html?confirmation=1";
+}
+
+// Load cart summary & count
+document.addEventListener("DOMContentLoaded", function() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const list = document.getElementById("checkout-items");
+  let total = 0;
+
+  if(cart.length === 0){
+    list.innerHTML = "<li>Your cart is empty.</li>";
+  } else {
+    list.innerHTML = cart.map(item => {
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+      return `<li>${item.qty} × ${item.name} - $${itemTotal.toFixed(2)}</li>`;
+    }).join('');
+  }
+
+  document.getElementById("checkout-total").innerText = total.toFixed(2);
+  document.getElementById("cart-count").innerText = cart.length;
+});
+</script>
+
+</body>
+</html>

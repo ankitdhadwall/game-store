@@ -294,7 +294,7 @@ section h2 {
 /* Grid system */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   gap: 1rem;
 }
 
@@ -502,7 +502,8 @@ section h2 {
   inset: 0;
   background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
   border-radius: var(--dl-layout-radius-cardradius);
-  z-index: 0;
+  /* z-index: 0; */
+  pointer-events: none;
 }
 
 .promo-tilt-card:hover {
@@ -1019,9 +1020,6 @@ section h2 {
   box-shadow: 0 6px 15px rgba(0,0,0,0.4); */
 }
 
-
-
-
 /* Make product card full-height flex column */
 .product-card {
   display: flex;
@@ -1044,7 +1042,7 @@ section h2 {
 /* Image stays at top, takes natural height */
 .product-card img {
   /* width: 100%; */
-  height: auto;
+  height: 230px;
   display: block;
 }
 
@@ -1164,6 +1162,159 @@ a[href^="mailto:"]:hover {
     margin-left: auto;
   }
 }
+
+/* Cart */
+ .cart-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+  .cart-container h1 {
+    margin-bottom: 1rem;
+  }
+  .cart-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  .cart-items th, .cart-items td {
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .cart-items img {
+    width: 16px;
+    height: auto;
+    border-radius: 6px;
+  }
+  .cart-summary {
+    text-align: right;
+    font-size: 1.1rem;
+  }
+  .cart-actions {
+    text-align: right;
+    margin-top: 1rem;
+  }
+  .qty-control {
+    display: flex;
+    align-items: center;
+  }
+  .qty-control button {
+    background: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    margin: 0 0.3rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .cart-link {
+  position: relative;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+#cart-count {
+  position: absolute;
+  top: -6px;
+  right: -18px;
+  background: var(--accent-color);
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  line-height: 1;
+  font-size: 16px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #4cb548;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.remove-btn:hover {
+  color: #3fa142;
+}
+
+/* Register Page Toast */
+    .custom-toast {
+      visibility: hidden;
+      min-width: 280px;
+      background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.4s ease, visibility 0.4s;
+    }
+    .custom-toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+
+/* Checkout page */
+ .checkout-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+  }
+  .checkout-summary, .checkout-form {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    flex: 1 1 300px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+  .checkout-summary h2, .checkout-form h2 {
+    margin-bottom: 1rem;
+  }
+  .checkout-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+  }
+  .checkout-summary li {
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .checkout-form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--background);
+    color: var(--text-color);
+  }
+  .checkout-form input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+
+
 
 /* By default, hide mobile login button */
 .mobile-login {
