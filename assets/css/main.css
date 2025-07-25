@@ -100,57 +100,70 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
+/* === Navbar base === */
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  transform: translateZ(0);
 }
 
-.nav-left .logo {
-  height: 50px;
+/* Logo responsive */
+.logo {
+  max-height: 80px;
 }
 
-.nav-center nav {
+/* Nav links container */
+#nav-menu nav {
   display: flex;
-  gap: 3rem;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.nav-center nav a {
-  color: var(--accent-color);
+#nav-menu nav a {
+  color: #41a444;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  font-size: 0.95rem;
 }
 
-.nav-center nav a:hover {
-  color: var(--accent-hover);
+#nav-menu nav a:hover {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-center nav a.active {
+  color: #fff; /* e.g. highlight color */
+  font-weight: bold;
+  /* border-bottom: 2px solid var(--dl-color-theme-accent2); */
+}
+
+/* Toggle icon hidden on desktop */
+.nav-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
   color: #fff;
 }
 
-.nav-right .cta-button {
-  padding: 0.4rem 1rem;
-  font-size: 0.9rem;
+/* Desktop login (right) shown by default */
+.desktop-login {
+  display: flex;
 }
 
-/* Responsive navbar */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .nav-center nav {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+/* Mobile login hidden by default */
+.mobile-login {
+  display: none;
 }
 
 /* Hero section */
 .hero {
   position: relative;
-  background: url('../images/hero.png') no-repeat center center / cover;
+  background: url('../images/hero-1.jpg') no-repeat center center / cover;
   width: 100%;
   min-height: 70vh;
   display: flex;
@@ -223,7 +236,7 @@ header {
   z-index: 0;
 }
 
-/* Buttons */
+
 /* Buttons */
 .cta-button  {
   display: inline-block;
@@ -273,7 +286,7 @@ header {
   padding: 0.6rem 0.7rem;
   border-radius: 10%;
   font-weight: 600;
-  color: #fff;
+  color: #fff !important;
   background-color: #41a444;
 }
 
@@ -317,8 +330,8 @@ section h2 {
   justify-content: space-around;
 }
 .scroll-track img {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   border-radius: 8px;
   flex-shrink: 0;
   object-fit: cover;
@@ -457,20 +470,6 @@ section h2 {
   position: absolute;
   font-style: normal;
   font-weight: 700;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .feature-split {
-    flex-direction: column;
-    text-align: center;
-  }
-  .feature-content {
-    transform: translateY(30px);
-  }
-  .feature-content.visible {
-    transform: translateY(0);
-  }
 }
 
 /* Promo Tilt Section */
@@ -861,165 +860,6 @@ section h2 {
     width: 100px;
 }
 
-/* Pricing section container */
-.pricing-section {
-  max-width: 1200px;
-  margin: 4rem auto;
-  text-align: center;
-  padding: 0 1rem;
-}
-
-.pricing-section h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.pricing-section p {
-  margin-bottom: 1.5rem;
-  color: #ccc;
-}
-
-/* Toggle buttons */
-.pricing-toggle {
-  display: inline-flex;
-  margin-bottom: 2rem;
-  border: 1px solid var(--accent-color);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.toggle-btn {
-  padding: 0.5rem 1.5rem;
-  border: none;
-  background: transparent;
-  color: var(--accent-color);
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-  font-weight: 600;
-  width: 50%;
-  padding: 1rem;
-}
-
-.toggle-btn.active, .toggle-btn:hover {
-  background: var(--accent-color);
-  color: #fff;
-}
-
-/* Pricing cards grid */
-.pricing-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-/* Card style */
-.pricing-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 2rem 1rem;
-  text-align: center;
-  transition: transform 0.4s, box-shadow 0.4s;
-  transform: rotateZ(1deg);
-  box-shadow: 0 0 10px rgba(76,181,72,0.2);
-  opacity: 0;
-  transform-style: preserve-3d;
-}
-
-.pricing-card.featured {
-  background: linear-gradient(135deg, #233d3a, #45715f);
-  color: #fff;
-}
-
-.pricing-card.scroll-animate {
-  transform: translateY(20px) rotateZ(1deg);
-}
-
-/* Scroll-in visible effect */
-.pricing-card.visible {
-  opacity: 1;
-  transform: translateY(0) rotateZ(0deg);
-  box-shadow: 0 0 20px rgba(76,181,72,0.4);
-}
-
-.pricing-card:hover {
-  transform: rotateY(5deg) scale(1.02);
-  box-shadow: 0 0 25px rgba(76,181,72,0.6);
-}
-
-/* Pricing card text */
-.pricing-card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.3rem;
-}
-
-.pricing-card h3 span {
-  font-size: 1rem;
-  font-weight: normal;
-}
-
-.pricing-card p {
-  color: #ccc;
-  margin-bottom: 1rem;
-}
-
-.pricing-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.pricing-card ul li {
-  margin: 0.4rem 0;
-}
-
-/* Pricing toggle buttons */
-.toggle-btn.active {
-  background: var(--accent-color);
-  color: #fff;
-}
-
-/* Pricing cards wrapper: only show active plan */
-.pricing-cards-wrapper > div {
-  display: none;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.pricing-cards-wrapper > div.active {
-  display: grid;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Existing .pricing-cards grid settings */
-.pricing-cards {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-/* CTA button flip */
-.cta-button {
-  /* display: inline-block;
-  background: linear-gradient(90deg, #4cb548, #2e8b3d);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.3s;
-  box-shadow: 0 0 10px rgba(76,181,72,0.5);
-  animation: glowPulse 2.5s ease-in-out infinite alternate;
-  perspective: 1000px;
-  backface-visibility: hidden; */
-}
-
-.cta-button:hover {
-  /* transform: rotateY(180deg);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4); */
-}
-
 /* Make product card full-height flex column */
 .product-card {
   display: flex;
@@ -1128,41 +968,6 @@ a[href^="mailto:"]:hover {
   text-decoration: underline;
 }
 
-
-/* Hamburger icon hidden by default */
-.nav-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--accent-color);
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
-  }
-  .nav-toggle {
-    display: block;
-  }
-  .nav-center {
-    width: 100%;
-    display: none;
-  }
-  .nav-center.show {
-    display: block;
-  }
-  .nav-center nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0;
-  }
-  .nav-right {
-    margin-left: auto;
-  }
-}
-
 /* Cart */
  .cart-container {
     max-width: 900px;
@@ -1217,6 +1022,7 @@ a[href^="mailto:"]:hover {
   font-size: 1.2rem;
   color: var(--text-color);
   text-decoration: none;
+  margin-top: 1%;
 }
 
 #cart-count {
@@ -1228,7 +1034,7 @@ a[href^="mailto:"]:hover {
   border-radius: 50%;
   padding: 2px 6px;
   font-size: 0.7rem;
-  font-weight: bold;
+  /* font-weight: bold; */
   line-height: 1;
   font-size: 16px;
 }
@@ -1316,25 +1122,260 @@ a[href^="mailto:"]:hover {
 
 
 
-/* By default, hide mobile login button */
-.mobile-login {
+/* Cookies Pop-Up*/
+.cookie-modal {
   display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); /* semi-transparent background behind modal */
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.cookie-modal.show {
+  display: flex;
+}
+
+.cookie-content {
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  color: #fff;
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.cookie-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  /* padding: 0.6rem 1.2rem;
+  background: #4cb548;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s; */
+}
+
+.cta-button:hover {
+  background: #3fa142;
+}
+
+.cta-button.outline {
+  background: transparent;
+  color: #4cb548;
+  border: 1px solid #4cb548;
+  margin-top: 0;
+  border-radius: 8px;
+  height: 40px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.cta-button.accept{
+  background: linear-gradient(90deg, #4cb548, #2e8b3d);
+  margin-top: 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.cta-button.outline:hover {
+  background: rgba(76,181,72,0.1);
+}
+
+.learn-more {
+  display: inline-block;
+  color: #4cb548;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.learn-more:hover {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+
+/*=========================*/
+/* Mobile Responsive */
+/*=========================*/
+@media (max-width: 768px) {
 }
 
 /* On mobile: hide desktop login, show mobile login inside menu */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+   .nav-toggle {
+    display: block;
+    color: #4caf50;
+    margin-right: 20px;
+  }
+  #nav-menu {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0,0,0,0.95);
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  /* Show nav when toggled */
+  #nav-menu.show {
+    display: block;
+  }
+
+  #nav-menu nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Hide desktop login; show mobile login inside nav */
   .desktop-login {
     display: none;
   }
   .mobile-login {
     display: inline-block;
-    margin-top: 0.5rem;
   }
-  .nav-center nav {
+} 
+
+@media (max-width: 1064) {
+   .nav-toggle {
+    display: block;
+  }
+
+  /* Hide nav by default */
+  #nav-menu {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0,0,0,0.95);
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  /* Show nav when toggled */
+  #nav-menu.show {
+    display: block;
+  }
+
+  #nav-menu nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Hide desktop login; show mobile login inside nav */
+  .desktop-login {
+    display: none;
+  }
+  .mobile-login {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .feature-split {
+    flex-direction: column;
+    text-align: center;
+  }
+  .feature-content {
+    transform: translateY(30px);
+  }
+  .feature-content.visible {
+    transform: translateY(0);
+  }
+  .feature-image{
+    transform: translateY(0px);
+    flex: auto;
+  }
+  .feature-content h2{
+    text-align: center;
+  }
+}
+
+/* Promo-tilt-card */
+@media (max-width: 768px) {
+.promo-tilt-card{
+display: block;
+text-align: center;
+}
+}
+
+/* Feature Right Stack Section */
+@media (max-width: 1024px) {
+  .feature-tilt-wrap {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0;
+  }
+
+  .feature-left {
+    order: 2;                  /* text + button always first */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .center-button {
+    margin-top: 1rem;
+  }
+
+  .feature-right {
+    order: 1;                  /* cards always below button */
+    display: grid;
+    grid-template-columns: 1fr; /* stack cards vertically */
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .tilt-card {
+    width: 90%;                /* add padding inside screen */
+    margin: 0 auto;
+  }
+
+  .feature-left h2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .feature-left p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile: stack sidebar below */
+@media (max-width: 768px) {
+  .blog-layout {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .blog-sidebar {
+    margin-top: 2rem;
+  }
+
+  .page-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .page-hero p {
+    font-size: 1rem;
   }
 }
 

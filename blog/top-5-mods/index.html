@@ -28,12 +28,10 @@
         <a href="../../blog/index.html">Blog</a>
         <a href="../../about/index.html">About</a>
         <a href="../../contact/index.html">Contact</a>
-        <a href="../../cart/index.html" class="cart-link">🛒 <span id="cart-count">0</span></a>
+        <a href="../../cart/index.html" class="cart-link"><img src="../../assets/images/cart-icon.svg" alt="Cart" width="20" height="20"> <span id="cart-count">0</span></a>
+        <a href="../../login/index.html" class="nav-right desktop-login cta-button-login small">Login</a>
         <a href="../../login/index.html" class="cta-button-login small mobile-login">Login</a>
       </nav>
-    </div>
-    <div class="nav-right desktop-login">
-      <a href="../../login/index.html" class="cta-button-login small">Login</a>
     </div>
   </div>
 </header>
@@ -100,6 +98,20 @@
     var menu = document.getElementById('nav-menu');
     menu.classList.toggle('show');
   }
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-center nav a');
+    const currentPath = window.location.pathname.replace(/\/$/, ''); // remove trailing slash
+
+    navLinks.forEach(link => {
+      const linkPath = new URL(link.href).pathname.replace(/\/$/, '');
+      if (linkPath === currentPath) {
+        link.classList.add('active');
+      }
+    });
+  });
 </script>
 
 <script src ="../../assets/js/cart.js"></script>

@@ -12,10 +12,14 @@ function addToCart(productId, name, price) {
   alert(name + " added to cart!");
 }
 
-// Cookies popup
+// Show cookie modal if consent not given
 window.addEventListener('load', () => {
   if (!localStorage.getItem('cookieConsent')) {
-    const consent = confirm("We use cookies to improve your experience. Accept?");
-    if (consent) localStorage.setItem('cookieConsent', true);
+    document.getElementById('cookie-popup').classList.add('show');
   }
+});
+
+document.getElementById('accept-cookies').addEventListener('click', () => {
+  localStorage.setItem('cookieConsent', true);
+  document.getElementById('cookie-popup').classList.remove('show');
 });
