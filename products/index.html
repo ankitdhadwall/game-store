@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -15,22 +16,22 @@
 <header>
   <div class="navbar">
     <div class="nav-left">
-      <a href="../index.html">
+      <a href="../">
         <img src="../assets/images/logo.svg" alt="ModMorrowind Store Logo" class="logo">
       </a>
     </div>
     <div class="nav-toggle" onclick="toggleMenu()">☰</div>
     <div class="nav-center" id="nav-menu">
       <nav>
-        <a href="../index.html">Home</a>
-        <a href="../services/index.html">Services</a>
-        <a href="../products/index.html">Products</a>
-        <a href="../blog/index.html">Blog</a>
-        <a href="../about/index.html">About</a>
-        <a href="../contact/index.html">Contact</a>
-        <a href="../cart/index.html" class="cart-link"><img src="../assets/images/cart-icon.svg" alt="Cart" width="20" height="20"> <span id="cart-count">0</span></a>
-        <a href="../login/index.html" class="nav-right desktop-login cta-button-login small">Login</a>
-        <a href="../login/index.html" class="cta-button-login small mobile-login">Login</a>
+        <a href="../">Home</a>
+        <a href="../services/">Services</a>
+        <a href="../products/">Products</a>
+        <a href="../blog/">Blog</a>
+        <a href="../about/">About</a>
+        <a href="../contact/">Contact</a>
+        <a href="../cart/" class="cart-link"><img src="../assets/images/cart-icon.svg" alt="Cart" width="20" height="20"> <span id="cart-count">0</span></a>
+        <a href="../login/" class="nav-right desktop-login cta-button-login small">Login</a>
+        <a href="../login/" class="cta-button-login small mobile-login">Login</a>
       </nav>
     </div>
   </div>
@@ -49,9 +50,15 @@
         <img src="../assets/images/Insanity-Iron-Swords.png" alt="Insanity's Iron Swords">
         <div class="product-info">
             <h3>Insanity's Iron Swords</h3>
-            <p class="price">$9.99</p>
+            <p class="price">$150</p>
             <div class="product-action">
-            <button class="cta-button small">Add to Cart</button>
+            <button 
+              class="cta-button small add-to-cart" 
+              data-id="insanity-iron-swords" 
+              data-name="Insanity's Iron Swords" 
+              data-price="100-500">
+              Add to Cart
+            </button>
             </div>
         </div>
         </article>
@@ -59,7 +66,7 @@
         <img src="../assets/images/Birthsigns-RESPECted-REDONE.png" alt="Birthsigns Respected Redoned">
         <div class="product-info">
           <h3>Birthsigns Respected Redoned</h3>
-          <p class="price">$4.99</p>
+          <p class="price">$100</p>
           <button class="cta-button small">Add to Cart</button>
         </div>
       </article>
@@ -67,7 +74,7 @@
         <img src="../assets/images/Everything-Must-Glow-King-Oath-Replacer-by-Trancemaster.png" alt="Everything Must Glow King Oath Replacer by Trancemaster">
         <div class="product-info">
           <h3>Everything Must Glow King Oath Replacer by Trancemaster</h3>
-          <p class="price">$10.00</p>
+          <p class="price">$499</p>
           <button class="cta-button small">Add to Cart</button>
         </div>
       </article>
@@ -75,7 +82,7 @@
         <img src="../assets/images/Clean-Patch-Sanitised-Morrowind-Mod.png" alt="CleanPatch Sanitised Morrowind Mod">
         <div class="product-info">
           <h3>Clean Patch Sanitised Morrowind Mod</h3>
-          <p class="price">$25.00</p>
+          <p class="price">$399</p>
           <button class="cta-button small">Add to Cart</button>
         </div>
       </article>
@@ -83,7 +90,7 @@
         <img src="../assets/images/Everything-Must-Glow-Indoril-Glass-Armor.png" alt="Everything Must Glow Indoril Glass Armor">
         <div class="product-info">
           <h3>Everything Must Glow Indoril Glass Armor</h3>
-          <p class="price">$8.99</p>
+          <p class="price">$300</p>
           <button class="cta-button small">Add to Cart</button>
         </div>
       </article>
@@ -91,7 +98,7 @@
         <img src="../assets/images/Glass-Cuirass-and-Helmet-Replacers.png" alt="Glass Cuirass and Helmet Replacers">
         <div class="product-info">
           <h3>Glass Cuirass and Helmet Replacers</h3>
-          <p class="price">$6.99</p>
+          <p class="price">$349</p>
           <button class="cta-button small">Add to Cart</button>
         </div>
       </article>
@@ -99,7 +106,7 @@
         <img src="../assets/images/Lootable-Things.png" alt="Lootable Things">
         <div class="product-info">
           <h3>Lootable Things</h3>
-          <p class="price">$3.99</p>
+          <p class="price">$299</p>
           <button class="cta-button small">Add to Cart</button>
         </div>
       </article>
@@ -107,7 +114,7 @@
         <img src="../assets/images/Neat-Dark-Waters.png" alt="Neat Dark Waters">
         <div class="product-info">
           <h3>Neat Dark Waters</h3>
-          <p class="price">$7.99</p>
+          <p class="price">$289</p>
           <button class="cta-button small">Add to Cart</button>
         </div>
       </article>
@@ -115,7 +122,7 @@
         <img src="../assets/images/Price-Balance-TR.png" alt="Price Balance (TR)">
         <div class="product-info">
           <h3>Price Balance (TR)</h3>
-          <p class="price">$5.99</p>
+          <p class="price">$400</p>
           <button class="cta-button small">Add to Cart</button>
         </div>
       </article>
@@ -123,7 +130,7 @@
         <img src="../assets/images/The-Talanian-Estate.png" alt="The Talanian Estate">
         <div class="product-info">
           <h3>The Talanian Estate</h3>
-          <p class="price">$50.00</p>
+          <p class="price">$450</p>
           <button class="cta-button small">Add to Cart</button>
         </div>
       </article>
@@ -134,7 +141,7 @@
 <footer>
   <p>&copy; 2025 ModMorrowind</p>
   <p>We are not an affiliate agency. All products are sold independently through our platform.</p>
-  <a href="../privacy/index.html">Privacy</a> | <a href="../terms/index.html">Terms</a> | <a href="../cookies/index.html">Cookies</a>
+  <a href="../privacy/">Privacy</a> | <a href="../terms/">Terms</a> | <a href="../cookies/">Cookies</a>
 </footer>
 
 <script>

@@ -1209,6 +1209,11 @@ a[href^="mailto:"]:hover {
   font-weight: 600;
 }
 
+/* Cookies Page*/
+.cookieslist{
+  margin-left: 35px;
+}
+
 
 /*=========================*/
 /* Mobile Responsive */
