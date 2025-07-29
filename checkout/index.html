@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Checkout – ModMorrowind</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">\
-  <link rel="canonical" href="https://modmorrowind.com/checkout/">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://modmorrowind.com/checkout/">
 <link rel="stylesheet" href="../assets/css/main.css">
 <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
 </head>
@@ -68,35 +68,27 @@
   <a href="../cookies/">Cookies</a>
 </footer>
 
-<script>
-function placeOrder(e){
-  e.preventDefault();
-  localStorage.removeItem("cart"); // Clear cart
-  location.href="../confirmation/";
-}
-</script>
-
 <script src="../assets/js/cart.js"></script>
-
 <script>
+// Toggle mobile menu
 function toggleMenu() {
-  var menu = document.getElementById('nav-menu');
-  menu.classList.toggle('show');
+  const menu = document.getElementById('nav-menu');
+  if (menu) menu.classList.toggle('show');
 }
 
-// Place order: redirect with confirmation
+// Place order: clear cart and redirect
 function placeOrder(e){
   e.preventDefault();
-  localStorage.removeItem("cart"); // clear cart
-  localStorage.removeItem("cartTotal");
+  localStorage.removeItem("cart");
   window.location.href = "../register/?confirmation=1";
 }
 
-// Load cart summary & count
-document.addEventListener("DOMContentLoaded", function() {
+// Load checkout summary and update cart count
+document.addEventListener("DOMContentLoaded", () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const list = document.getElementById("checkout-items");
   let total = 0;
+  let totalQty = 0;
 
   if(cart.length === 0){
     list.innerHTML = "<li>Your cart is empty.</li>";
@@ -104,27 +96,25 @@ document.addEventListener("DOMContentLoaded", function() {
     list.innerHTML = cart.map(item => {
       const itemTotal = item.price * item.qty;
       total += itemTotal;
+      totalQty += item.qty;
       return `<li>${item.qty} × ${item.name} - $${itemTotal.toFixed(2)}</li>`;
     }).join('');
   }
 
   document.getElementById("checkout-total").innerText = total.toFixed(2);
-  document.getElementById("cart-count").innerText = cart.length;
+  document.getElementById("cart-count").innerText = totalQty;
 });
-</script>
 
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const navLinks = document.querySelectorAll('.nav-center nav a');
-    const currentPath = window.location.pathname.replace(/\/$/, ''); // remove trailing slash
-
-    navLinks.forEach(link => {
-      const linkPath = new URL(link.href).pathname.replace(/\/$/, '');
-      if (linkPath === currentPath) {
-        link.classList.add('active');
-      }
-    });
+// Highlight active nav
+window.addEventListener('DOMContentLoaded', () => {
+  const currentPath = window.location.pathname.replace(/\/$/, '');
+  document.querySelectorAll('.nav-center nav a').forEach(link => {
+    const linkPath = new URL(link.href).pathname.replace(/\/$/, '');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    }
   });
+});
 </script>
 
 </body>
